@@ -1,0 +1,15 @@
+<form  [formGroup]="searchForm" class="form-group" (submit)="onSubmit()">
+    <label class="mt-2">Numero de la pokedex</label>
+    <input type="text" class="form-control " formControlName="offset" placeholder="numero minimo">    
+    <small  class="form-text text-muted" *ngIf="searchForm.get('offset')?.hasError('required')">Favor de ingresar el valor.</small>
+    <small  class="form-text text-muted" *ngIf="searchForm.get('offset')?.hasError('pattern')">Favor de ingresar un valor valido (numero positivo).</small>
+
+    <br>
+    <label class="inline-block mt-1">Numero maximo de pokemones</label>
+    <input type="text" class="form-control" formControlName="limit" placeholder="numero maximo">    
+    <small  class="form-text text-muted" *ngIf="searchForm.get('limit')?.hasError('required')">Favor de ingresar el valor.</small>
+    <small  class="form-text text-muted" *ngIf="searchForm.get('limit')?.hasError('pattern')">Favor de ingresar un valor valido (numero positivo).</small>
+
+    <br>
+    <button  class="btn btn-success mt-2" [disabled]="searchForm.invalid">Buscar Pokemon</button>
+</form>

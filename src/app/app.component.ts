@@ -7,4 +7,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'poke-api';
+  public pokemonsRes : any[] = [];
+  
+
+  onSubmit(res : any[]){
+    console.log('app-component', res)
+    this.pokemonsRes = res;
+  }
 }
